@@ -7,6 +7,7 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account} user info from the database*/
   account: null,
   arts: [],
-  page: 0
+  page: 0,
+  maxPages: 100
 })
 

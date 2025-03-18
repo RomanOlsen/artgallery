@@ -10,6 +10,11 @@ async function changePage(direction) {
     return
   }
 
+  if (AppState.page >= AppState.maxPages && direction == 1) {
+    Pop.toast(`You cant go past the max limit of ${AppState.maxPages} pages.`)
+    return
+  }
+
   try {
     await artService.changePage(direction)
   }
@@ -21,9 +26,11 @@ async function changePage(direction) {
 
 
 <template>
-  <button @click="changePage(-1)" class="btn btn-primary">Previous</button>
-  <span>{{ AppState.page }}</span>
-  <button @click="changePage(1)" class="btn btn-primary">Next</button>
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <button @click="changePage(-1)" class="btn btn-warning" :disabled="AppState.page < 2">Previous</button>
+    <span>Page: {{ AppState.page }}</span>
+    <button @click="changePage(1)" class="btn btn-success" :disabled="AppState.page >= AppState.maxPages">Next</button>
+  </div>
 </template>
 
 

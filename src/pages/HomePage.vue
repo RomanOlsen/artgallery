@@ -39,7 +39,7 @@ async function getArt() {
       <PageButtons />
     </div>
     <div class="row">
-      <div v-for="art in arts" class="col-4" :key="art.id">
+      <div v-for="art in arts" class="col-4 align-items-center d-flex" :key="art.id">
         <ArtCard :artProp="art" />
       </div>
     </div>

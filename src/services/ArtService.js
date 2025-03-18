@@ -20,7 +20,11 @@ class ArtService{
     const arts = response.data.artworks.map(pojo => new Art(pojo))
     AppState.arts = arts
     AppState.page = response.data.page
+    AppState.maxPages = response.data.pages
 
   }
+
+  
+
 }
 export const artService = new ArtService()
