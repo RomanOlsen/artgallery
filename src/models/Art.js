@@ -5,8 +5,9 @@ export class Art{
     this.description = d.description
     this.slug = d.slug
     this.color = d.color
+    this.admirers= d.admirers
     this.admirersNames = d.admirers.name
-    this.admirersPictures = d.admirers.picture
-    this.admirersAmount = d.admirers.
+    this.admirersPictures = d.admirers.map(profile => profile.picture)
+    this.admirersAmount = d.admirers
   }
 }

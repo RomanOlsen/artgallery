@@ -2,19 +2,21 @@
 import { Art } from '@/models/Art.js';
 import { artService } from '@/services/ArtService.js';
 import { Pop } from '@/utils/Pop.js';
+import Admirers from './Admirers.vue';
 
 
 defineProps({
   artProp: { type: Art, required: true }
 })
 
-async function admire(id){
+
+async function admire(id) {
   try {
-    
+
     await artService.admire(id)
     Pop.success('Admired!')
   }
-  catch (error){
+  catch (error) {
     Pop.error(error, 'couldnt admire that!');
   }
 }
@@ -30,8 +32,13 @@ async function admire(id){
     </div>
     <div class="text-center my-1">
       <button @click="admire(artProp.id)" class="btn btn-indigo">❤️ Admire</button>
-      <div>{{ artProp.admirersNames }}</div>
-      <div>{{ artProp.admirersAmount }}</div>
+      <div>Admirations: {{ artProp.admirers.length }}</div>
+      <div v-for="admirer in artProp.admirers" class="profile">
+
+        <img :src="admirer.picture" alt="">
+        {{ admirer.name }}
+        <!-- <Admirers /> -->
+      </div>
 
 
     </div>
@@ -48,5 +55,11 @@ async function admire(id){
   // border: 50px solid gray;
   border-style: solid;
   border-width: 0.75rem;
+}
+
+.profile img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
 }
 </style>
