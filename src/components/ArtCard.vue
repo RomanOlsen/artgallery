@@ -1,10 +1,19 @@
 <script setup>
+import { Art } from '@/models/Art.js';
+
+
+defineProps({
+  artProp: { type: Art, required: true }
+})
+
+
 
 </script>
 
 
 <template>
-  <div>card</div>
+  <div>{{ artProp.description }}</div>
+  <img :src="artProp.image" alt="" class="img-fluid">
 </template>
 
 

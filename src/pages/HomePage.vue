@@ -1,15 +1,16 @@
 // JS
 <script setup>
 import { AppState } from '@/AppState.js';
+import ArtCard from '@/components/ArtCard.vue';
 import { artService } from '@/services/ArtService.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
+
 /////////////////////////
 
 const arts = computed(() => AppState.arts)
 
 /////////////////////////
-// onMounted(getArt())
 
 onMounted(() => {
   getArt()
@@ -32,8 +33,8 @@ async function getArt() {
 <template>
   <div class="container">
     <div class="row">
-      <div v-for="art in arts" class="col-12">
-        {{ art }}
+      <div v-for="art in arts" class="col-12" :key="art.id">
+        <ArtCard :artProp="art" />
       </div>
     </div>
   </div>
