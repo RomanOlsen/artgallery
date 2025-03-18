@@ -4,6 +4,11 @@ import { logger } from "@/utils/Logger.js"
 import { api } from "./AxiosService.js"
 
 class ArtService{
+ async admire(id) {
+  const response = await api.post(`api/artworks/${id}/admire`)
+  logger.log(response)
+  
+  }
   async changePage(direction) {
     const newPage = AppState.page + direction
     const response = await api.get(`api/artworks?page=${newPage}`)

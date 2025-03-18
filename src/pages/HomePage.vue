@@ -28,7 +28,6 @@ async function getArt() {
   }
 }
 
-
 /////////////////////////
 </script>
 
