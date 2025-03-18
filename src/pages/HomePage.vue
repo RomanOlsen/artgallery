@@ -2,6 +2,7 @@
 <script setup>
 import { AppState } from '@/AppState.js';
 import ArtCard from '@/components/ArtCard.vue';
+import PageButtons from '@/components/PageButtons.vue';
 import { artService } from '@/services/ArtService.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
@@ -26,6 +27,8 @@ async function getArt() {
     Pop.error(error)
   }
 }
+
+
 /////////////////////////
 </script>
 
@@ -33,7 +36,10 @@ async function getArt() {
 <template>
   <div class="container">
     <div class="row">
-      <div v-for="art in arts" class="col-12" :key="art.id">
+      <PageButtons />
+    </div>
+    <div class="row">
+      <div v-for="art in arts" class="col-4" :key="art.id">
         <ArtCard :artProp="art" />
       </div>
     </div>

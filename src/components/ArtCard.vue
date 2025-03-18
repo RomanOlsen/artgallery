@@ -10,11 +10,22 @@ defineProps({
 
 </script>
 
-
+// TODO fix color and border
 <template>
-  <div>{{ artProp.description }}</div>
-  <img :src="artProp.image" alt="" class="img-fluid">
+  <!-- <div>{{ artProp.slug }}</div> -->
+  <div class="art-border" :style="{ borderColor: artProp.color }">
+    <img :src="artProp.image" :alt="artProp.slug" class="img-fluid">
+  </div>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.art-border {
+  // border-width: 10px;
+  border-radius: 1rem;
+  // border-color: rgb(66, 224, 224);
+  // border: 50px solid gray;
+  border-style: solid;
+  border-width: 2rem;
+}
+</style>
