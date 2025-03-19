@@ -2,7 +2,7 @@
 import { Art } from '@/models/Art.js';
 import { artService } from '@/services/ArtService.js';
 import { Pop } from '@/utils/Pop.js';
-import Admirers from './Admirers.vue';
+// import Admirers from './Admirers.vue';
 
 
 defineProps({
